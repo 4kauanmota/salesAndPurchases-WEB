@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{template.html}">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Project Register</title>
+
+  <link rel="stylesheet" th:href="@{/css/shared/form.css}">
+  <link rel="stylesheet" th:href="@{/css/project/Register.css}">
+  <script th:src="@{/js/shared/form.js}" defer></script>
+</head>
+
+<body>
+<main layout:fragment="main">
+  <div class="background">
+    <img th:src="@{/img/shared/form/img1.jpg}" alt="An imagem that represents a global connection, in a carrousel cicle">
+  </div>
+  <form th:action="@{/project/save}" method="POST" th:object="${project}">
+    <fieldset>
+      <p>
+        <input type="text" placeholder="Title" th:field="*{title}">
+      </p>
+
+      <p>
+        <input type="text" placeholder="Description" th:field="*{description}">
+      </p>
+
+      <p>
+        <input type="number" placeholder="Cost" th:field="*{cost}">
+      </p>
+
+      <p>
+        <input type="url" placeholder="Link" th:field="*{link}">
+      </p>
+
+      <p>
+        <input type="url" placeholder="Thumbnail" th:field="*{thumbnail}">
+      </p>
+
+      <p>
+        <select multiple="multiple" name="specs">
+          <option th:each="spec : ${specs}" 
+            th:value="${spec.id}" 
+            th:text="${spec.name}" >
+          </option>
+        </select>
+      </p>
+      <p>
+        <input type="submit" value="Register" class="sendButton">
+      </p>
+    </fieldset>
+  </form>
+</main>
+</body>
+
+</html>

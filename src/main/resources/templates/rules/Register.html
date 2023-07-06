@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{template.html}">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Rules Register</title>
+
+  <link rel="stylesheet" th:href="@{/css/shared/form.css}">
+  <link rel="stylesheet" th:href="@{/css/rules/Register.css}">
+  <script th:src="@{/js/shared/form.js}" defer></script>
+</head>
+
+<body>
+<main layout:fragment="main">
+  <div class="background">
+    <img th:src="@{/img/shared/form/img1.jpg}" alt="An imagem that represents a global connection, in a carrousel cicle">
+  </div>
+  <form th:action="@{/rules/save}" method="POST" th:object="${rule}">
+    <fieldset>
+      <input type="hidden" th:field="*{id}">
+
+      <p>
+        <input type="text" placeholder="Title" th:field="*{title}">
+      </p>
+
+      <p>
+        <input type="text" placeholder="Description" th:field="*{description}">
+      </p>
+
+      <p>
+        <input type="submit" th:value="${action}" class="sendButton">
+      </p>
+    </fieldset>
+  </form>
+</main>
+</body>
+
+</html>

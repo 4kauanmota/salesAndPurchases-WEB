@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{template.html}">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Register</title>
+
+  <link rel="stylesheet" th:href="@{/css/shared/form.css}">
+  <link rel="stylesheet" th:href="@{/css/user/Register.css}">
+  <script th:src="@{/js/shared/form.js}" defer></script>
+</head>
+
+<body>
+  <main layout:fragment="main">
+    <div class="background">
+      <img th:src="@{/img/shared/form/img1.jpg}" alt="An imagem that represents a global connection, in a carrousel cicle">
+    </div>
+    <form th:action="@{/user/save}" method="POST" th:object="${client}">
+      <fieldset>
+        <p>
+          <input type="text" placeholder="Name" th:field="*{name}">
+        </p>
+
+        <p>
+          <input type="text" placeholder="Login" th:field="*{login}">
+        </p>
+
+        <p>
+          <input type="email" placeholder="Email" th:field="*{email}">
+        </p>
+
+        <p>
+          <input type="password" placeholder="Password" th:field="*{password}">
+        </p>
+
+        <p>
+          <input type="url" placeholder="Profile Picture" th:field="*{profilePicture}">
+        </p>
+
+        <p>
+          <input type="submit" value="Register" class="sendButton">
+        </p>
+      </fieldset>
+    </form>
+  </main>
+</body>
+
+</html>

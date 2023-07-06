@@ -1,0 +1,185 @@
+p, ul{
+  margin: 0;
+}
+
+input{
+    border: none;
+    cursor: pointer;
+}
+
+img{
+  object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------------------------------- */
+
+.projectContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.projectContainer > div{
+  width: 90%;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: var(--main-white-font);
+  border-radius: 8px;
+}
+
+.projectContainer > div:nth-child(1), .projectContainer > div:nth-child(2){
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------------------------------- */
+
+.projectContainer > div:nth-child(1){
+  height: 15%;
+}
+
+.projectContainer > div:nth-child(1) div:first-child{
+  width: 10%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+}
+
+.projectContainer > div:nth-child(1) div:first-child img{
+  width: 100%;
+  height: 80%;
+
+  border-radius: 4px;
+}
+
+.projectContainer > div:nth-child(1) div:nth-child(2){
+  width: 80%;
+  height: 100%;
+
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.projectContainer > div:nth-child(1) div:nth-child(2) div:first-child{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+}
+
+.projectContainer > div:nth-child(1) div:nth-child(2) div:first-child > div{
+  display: flex;
+  flex-direction: row;
+  height: 55%;
+}
+
+.projectContainer > div:nth-child(1) div:nth-child(2) div:first-child > div > h1{
+  margin: 0 1rem 1rem 0;
+}
+
+.projectContainer > div:nth-child(1) div:nth-child(2) div:first-child > div > span{
+  margin: 0 0 0.4rem 0;
+}
+
+.projectContainer > div:nth-child(1) div:nth-child(2) div:first-child > p:last-child{
+  width: 100%;
+  height: 45%;
+}
+
+.projectContainer > div:nth-child(1) div:nth-child(2) div:last-child{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+/* --------------------------------------------------------------------------------------------------- */
+
+.projectContainer > div:nth-child(2){
+  height: 15%;
+}
+
+.projectContainer > div:nth-child(2) div:first-child{
+  width: 10%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.projectContainer > div:nth-child(2) div > img{
+  width: 100%;
+  height: 80%;
+  border-radius: 4px;
+}
+
+.projectContainer > div:nth-child(2) div > p{
+  font-size: 1.5rem;
+}
+
+.projectContainer > div:nth-child(2) div:last-child{
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* --------------------------------------------------------------------------------------------------- */
+
+.projectContainer > div:nth-child(3){
+  height: 60%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.projectContainer > div:nth-child(3) div:first-child{
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.projectContainer > div:nth-child(3) div:first-child iframe{
+  width: 90%;
+  height: 90%;
+}
+
+
+.projectContainer > div:nth-child(3) div:last-child{
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.projectContainer > div:nth-child(3) div:last-child form > input{
+  height: 100%;
+
+  background-color: var(--green);
+  padding: 1rem 4rem;
+  border-radius: 32px;
+  color: var(--main-white-font);
+  box-shadow: 0px 4px 0px 0px var(--main-white-font);
+  transition: 0.4s all;
+
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.projectContainer > div:nth-child(3) div:last-child form > input:hover{
+  transform: translateY(4px);
+  box-shadow: 0px 0px 0px 0px var(--main-white-font);
+}
+
+.remove{
+    background-color: var(--red) !important;
+}
+
+.devolution{
+    background-color: var(--yellow) !important;
+}

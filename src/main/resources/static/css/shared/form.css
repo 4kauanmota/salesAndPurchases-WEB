@@ -1,0 +1,74 @@
+form{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+fieldset{
+  border: none;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+fieldset p{
+  width: 80%;
+}
+
+fieldset p:last-child{
+  display: flex;
+  justify-content: center;
+}
+
+input:not([type='submit']), select{
+  width: 100%;
+  height: 2.8rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: none;
+  padding: 0.5rem;
+}
+
+input:not([type='submit']):focus{
+  outline: 3px solid var(--blue);
+  border: none;
+}
+
+input[type='submit']{
+  width: 60%;
+  height: 2.8rem;
+  font-size: 1.5rem;
+  background-color: var(--blue);
+  color: var(--main-white-font);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: ease-in-out 0.3s all;
+}
+
+input[type='submit']:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.1);
+}
+
+.background{
+  width: 80%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+}
+
+.background img{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}

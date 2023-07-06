@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" th:href="@{/img/logo.png}">
+
+    <title layout:title-pattern="$LAYOUT_TITLE $CONTENT_TITLE"></title>
+
+    <link rel="stylesheet" th:href="@{/css/template.css}" media="all">
+</head>
+
+<body>
+    <header>
+        <aside>
+            <!-- Site logo and information -->
+            <div class="menuInformation">
+                <div class="menuLogo">
+                    <img th:src="@{/img/logo.png}" alt="Site logo">
+                </div>
+            </div>
+
+            <nav>
+                <!-- User information, if the user is logged in -->
+                <div class="userMenuOrganization">
+                    <div class="profilePicture">
+                        <img th:src="${userProfilePicture}" alt="User profile picture">
+                    </div>
+
+                    <div class="profileInformation">
+                        <ul class="navegationList userMenuInformation">
+                            <li>
+                                <span th:text="${userName}"></span>
+                            </li>
+    
+                            <li>
+                                <span th:text="${userEmail}">  </span>
+                            </li>
+    
+                            <li>
+                                <span th:text="${userBalance}">  </span>
+                            </li>
+    
+                            <li>
+                                <span th:text="${userEvaluation}">  </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="navegationOrganization">
+                    <ul class="navegationList navegationOptions">
+                        <li>
+                            <a href="/home" class="color purple">
+                                Home
+                            </a>
+                        </li>
+    
+                        <li>
+                            <a href="/help" class="color purple">
+                                Help
+                            </a>
+                        </li>
+    
+                        <!-- If the user isn't is logged in -->
+                        <li sec:authorize="!isAuthenticated()">
+                            <a href="/login" class="color blue">
+                                Sign in
+                            </a>
+                        </li>
+    
+                        <!-- If the user isn't is logged in -->
+                        <li sec:authorize="!isAuthenticated()">
+                            <a href="/register" class="color blue">
+                                Register
+                            </a>
+                        </li>
+    
+                        <!-- If the user is logged in -->
+                        <li sec:authorize="isAuthenticated()">
+                            <a href="/store" class="color green">
+                                Store
+                            </a>
+                        </li>
+
+                        <!-- If the user is logged in -->
+                        <li sec:authorize="hasRole('CLIENT')">
+                            <a href="/user/projects" class="color red">
+                                My Projects
+                            </a>
+                        </li>
+    
+                        <!-- If the user is logged in -->
+                        <li sec:authorize="hasRole('CLIENT')">
+                            <a href="/project/register" class="color red">
+                                New Project
+                            </a>
+                        </li>
+    
+                        <!-- If the user is logged in -->
+                        <li sec:authorize="hasRole('CLIENT')">
+                            <a href="/user/circulations" class="color orange">
+                                My Circulations
+                            </a>
+                        </li>
+
+                        <!-- If you are an administrator -->
+                        <li sec:authorize="hasRole('ADMIN')">
+                            <a href="/rules/register" class="color gray">
+                                New Rule
+                            </a>
+                        </li>
+
+                        <!-- If you are an administrator -->
+                        <li sec:authorize="hasRole('ADMIN')">
+                            <a href="/rules" class="color gray">
+                                Manage Rules
+                            </a>
+                        </li>
+
+                        <!-- If you are an administrator -->
+                        <li sec:authorize="hasRole('ADMIN')">
+                            <a href="/specs/register" class="color gray">
+                                New Spec
+                            </a>
+                        </li>
+
+                        <!-- If you are an administrator -->
+                        <li sec:authorize="hasRole('ADMIN')">
+                            <a href="/specs" class="color gray">
+                                Manage Specs
+                            </a>
+                        </li>
+
+                        <!-- If the user is logged in -->
+                        <li sec:authorize="isAuthenticated()">
+                            <form method="POST" th:action="@{/logout}" class="signOut">
+                                <button type="submit" class="signOut yellow">
+                                    Sign out
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+    </header>
+
+    <main layout:fragment="main">
+        
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <th:block layout:fragment="script">
+
+    </th:block>
+</body>
+</html>

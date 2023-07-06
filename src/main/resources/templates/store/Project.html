@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{template.html}">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Store</title>
+
+  <link rel="stylesheet" th:href="@{/css/store/Project.css}">
+</head>
+
+<body>
+<main layout:fragment="main">
+  <div class="projectContainer">
+
+    <div>
+      <div>
+        <img th:src="${project.thumbnail}" alt="Project Thumbnail">
+      </div>
+
+      <div>
+        <div>
+          <div>
+            <h1 th:text="${project.title}"></h1>
+            <span th:text="${projectLastUpdate}"></span>
+            <span style="margin: 0 0.3rem 0.4rem 1rem;">R$ </span>
+            <span th:text="${project.cost}"></span>
+          </div>
+          <p th:text="${project.description}"></p>
+        </div>
+  
+        <div>
+          <ul th:each="spec : ${project.specs}">
+            <li th:text="${spec.name}"></li>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+
+    <div>
+      <div>
+        <img th:src="${seller.profilePicture}" alt="Seller profile picture">
+      </div>
+
+      <div>
+        <p th:text="${seller.name}"></p>
+        <p th:text="${seller.email}"></p>
+        <p th:text="${evaluation}"></p>
+        <p th:text="${userLastUpdate}"></p>
+      </div>
+    </div>
+
+    <div>
+      <div>
+        <iframe th:src="${project.link}" frameborder="0">
+
+        </iframe>
+      </div>
+
+      <div th:if="${project.isOpen == true && user == 'client' && isOwner == 'false'}">
+        <form th:action="@{'/project/buy/' + ${project.id}}" method="POST">
+          <input type="submit" value="BUY">
+        </form>
+      </div>
+
+      <div th:if="${project.isOpen == false && user == 'client' && isOwner == 'true'}">
+        <form th:action="@{'/project/devolution/' + ${project.id}}" method="POST">
+          <input type="submit" class="devolution" value="DEVOLUTION">
+        </form>
+      </div>
+
+      <div th:if="${user == 'admin'}">
+        <form th:action="@{'/project/remove/' + ${project.id}}" method="POST">
+          <input type="submit" class="remove" value="REMOVE">
+        </form>
+      </div>
+    </div>
+  </div>
+
+</main>
+</body>
+
+</html>

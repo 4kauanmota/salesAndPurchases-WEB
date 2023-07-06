@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{template.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rules</title>
+
+    <link rel="stylesheet" th:href="@{/css/shared/listCRUD.css}">
+    <link rel="stylesheet" th:href="@{/css/rules/Rules.css}">
+</head>
+
+<body>
+<main layout:fragment="main">
+    <table>
+        <thead>
+            <tr>
+                <td>Title</td>
+                <td>Description</td>
+                <td>Update</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="rule : ${rules}">
+                <td th:text="${rule.title}"></td>
+                <td th:text="${rule.description}"></td>
+                <td>
+                    <form th:action="@{'/rules/edit/' + ${rule.id}}" method="POST">
+                        <input type="submit" value="Edit">
+                    </form>
+                </td>
+                <td>
+                    <form th:action="@{'/rules/remove/' + ${rule.id}}" method="POST">
+                        <input type="submit" value="X">
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+
+</html>

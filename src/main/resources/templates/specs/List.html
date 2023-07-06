@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{template.html}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Specs</title>
+
+    <link rel="stylesheet" th:href="@{/css/shared/listCRUD.css}">
+    <link rel="stylesheet" th:href="@{/css/specs/Specs.css}">
+</head>
+
+<body>
+<main layout:fragment="main">
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Update</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="spec : ${specs}">
+                <td th:text="${spec.name}"></td>
+                <td>
+                    <form th:action="@{'/specs/edit/' + ${spec.id}}" method="POST">
+                        <input type="submit" value="Edit">
+                    </form>
+                </td>
+                <td>
+                    <form th:action="@{'/specs/remove/' + ${spec.id}}" method="POST">
+                        <input type="submit" value="X">
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+
+</html>
