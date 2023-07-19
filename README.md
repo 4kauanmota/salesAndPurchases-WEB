@@ -30,3 +30,4 @@
 + `MAVEN`
 + `THYMELEAF`
 + `JPQL`
++ `GITLAB`
